@@ -34,11 +34,13 @@ module.exports = function(app) {
 
   // PUT route for updating posts
   app.put("/api/burgers/:id", function(req, res) {
+    console.log(req.body);
+    
     db.Burger.update(
       req.body,
       {
         where: {
-          id: req.body.id
+          id: req.params.id
         }
       }).then(function(dbBurger) {
       res.json(dbBurger);
