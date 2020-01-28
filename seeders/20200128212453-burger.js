@@ -6,7 +6,7 @@ module.exports = {
       // Add altering commands here.
       // Return a promise to correctly handle asynchronicity.
 
-      return queryInterface.bulkInsert('burger', [{
+      return queryInterface.bulkInsert('burgers', [{
         burger_name: 'Foot Feta-ish Burger',
         eaten: false,
         createdAt : new Date(),
