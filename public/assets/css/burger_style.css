@@ -1,0 +1,33 @@
+body {
+    background: url(../img/bobBG.jpg);
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    background-color: #7e7e7e;
+}
+
+.burger-border{
+    border: 2px solid black;
+    padding: 5px;
+}
+
+span{
+    font-size: 1.75em;
+}
+
+#burger-name-label{
+    color: white;
+    font-size: 1.75em;
+}
+
+.btn-large{
+    background-color: white;
+    color: black;
+}
+
+.push-up{
+margin: -3vh;
+}
+
+ul{
+    background-color: rgba(228, 228, 228, .85);
+}
