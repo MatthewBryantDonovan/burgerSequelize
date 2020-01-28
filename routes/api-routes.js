@@ -12,27 +12,27 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
 
-  // POST route for saving a new post
+  // POST route for saving a new burgers
   app.post("/api/burgers", function(req, res) {
     console.log(req.body);
     
-    db.Burger.create(req.body).then(function(dbPost) {
-      res.json(dbPost);
+    db.Burger.create(req.body).then(function(dbBurger) {
+      res.json(dbBurger);
     });
   });
 
-  // DELETE route for deleting posts
-  app.delete("/api/posts/:id", function(req, res) {
-    db.Post.destroy({
+  // DELETE route for deleting burgers
+  app.delete("/api/burgers/:id", function(req, res) {
+    db.Burger.destroy({
       where: {
         id: req.params.id
       }
-    }).then(function(dbPost) {
-      res.json(dbPost);
+    }).then(function(dbBurger) {
+      res.json(dbBurger);
     });
   });
 
-  // PUT route for updating posts
+  // PUT route for updating burgers
   app.put("/api/burgers/:id", function(req, res) {
     console.log(req.body);
     
