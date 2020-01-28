@@ -26,8 +26,10 @@ $(function () {
     event.preventDefault();
 
     var newBurger = {
-      name: $("#Burger-Name").val().trim(),
-      eaten: 0
+      burger_name: $("#Burger-Name").val().trim(),
+      eaten: 0,
+      createdAt: new Date(),
+      updateAt: new Date()
     };
 
     // Send the POST request.

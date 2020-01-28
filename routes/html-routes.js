@@ -19,7 +19,6 @@ module.exports = function (app) {
       var hbsObject = {
         burgers: dbBurger
       };
-      console.log(hbsObject);
       
       res.render("index", hbsObject);
     });

@@ -9,8 +9,8 @@ module.exports = {
       return queryInterface.bulkInsert('burger', [{
         burger_name: 'Foot Feta-ish Burger',
         eaten: false,
-        createdAt : Date.now(),
-        updatedAt : Date.now()
+        createdAt : new Date(),
+        updatedAt : new Date()
       }], {});
     
   },

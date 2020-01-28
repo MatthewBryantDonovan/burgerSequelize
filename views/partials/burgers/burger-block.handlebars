@@ -1,8 +1,8 @@
 <li class="burger-border">
 	<span>{{dataValues.burger_name}}</span>
-	<button class="change-eat" data-id="{{id}}" data-neweat="{{eat}}">
+	<button class="change-eat" data-id="{{dataValues.id}}" data-neweat="{{eat}}">
 		{{#if eat}}Pick up order!{{else}}Order Another!{{/if}}
 	</button>
 
-	{{#unless eat}}<button class="delete-burger" data-id="{{this.id}}">86 This Burger!</button>{{/unless}}
+	{{#unless eat}}<button class="delete-burger" data-id="{{dataValues.id}}">86 This Burger!</button>{{/unless}}
 </li>
