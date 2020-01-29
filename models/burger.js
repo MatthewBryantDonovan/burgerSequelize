@@ -6,6 +6,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Burger.associate = function(models) {
     // associations can be defined here
+    Burger.belongsTo(models.Customer, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
   };
   return Burger;
 };
