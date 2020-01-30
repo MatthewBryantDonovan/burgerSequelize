@@ -26,7 +26,6 @@ $(function () {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
-    if ($("#Burger-Name").val() != "" && $("#Customer-Name").val() != "") {
       var newBurger = {
         burger_name: $("#Burger-Name").val().trim(),
         customer_name: $("#Customer-Name").val().trim(),
@@ -46,8 +45,33 @@ $(function () {
           location.reload();
         }
       );
+  });
+
+  $(".add-to-order").on("click", function (event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+    if ($("#Burger-Add-Name" + $(this).data("id")).val() != "") {
+      var newBurger = {
+        burger_name: $("#Burger-Add-Name" + $(this).data("id")).val().trim(),
+        eaten: 0,
+        createdAt: new Date(),
+        updateAt: new Date(),
+        CustomerId: $(this).data("id")
+      };
+
+      // Send the POST request.
+      $.ajax("/api/burgersforcustomer", {
+        type: "POST",
+        data: newBurger
+      }).then(
+        function () {
+          console.log("created new burger");
+          // Reload the page to get the updated list
+          location.reload();
+        }
+      );
     } else {
-      $("#submit-error").html("Please enter a Burger and who it is for!");
+      $("#add-error" + $(this).data("id")).html("Please enter a Burger!");
     }
   });
 

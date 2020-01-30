@@ -76,6 +76,12 @@ module.exports = function (app) {
         });
 
     });
+    // POST route for saving a new burgers
+    app.post("/api/burgersforcustomer", function (req, res) {
+        db.Burger.create(req.body).then(function (dbBurger) {
+                res.json(dbBurger);
+        });
+    });
 
     // DELETE route for deleting burgers
     app.delete("/api/burgers/:id", function (req, res) {

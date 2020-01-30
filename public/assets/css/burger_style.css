@@ -10,6 +10,18 @@ body {
     padding: 5px;
 }
 
+li{
+    font-weight: bold;
+}
+
+ul{
+    margin-bottom: 25px;
+}
+
+#burger-add-label{
+    color: #5a5a5a
+}
+
 #submit-error{
     color: Black;
     font-size: 1.75em;

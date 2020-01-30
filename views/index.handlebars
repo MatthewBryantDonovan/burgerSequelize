@@ -6,9 +6,9 @@
         <div class="form-group">
           <p id="submit-error"></p>
           <label id="burger-name-label" for="Burger-Name">Order a burger (Enter burger name)</label>
-          <input type="text" id="Burger-Name" name="name">
-          <label id="customer-name-label" for="Customer-Name">Place your name: (Required) </label>
-          <input type="text" id="Customer-Name" name="name">
+          <input type="text" id="Burger-Name" name="name" required>
+          <label id="customer-name-label" for="Customer-Name">Place your name to start an order: (Required) </label>
+          <input type="text" id="Customer-Name" name="name" required>
         </div>
         <button type="submit">Add burger</button>
       </form>
@@ -21,8 +21,16 @@
         {{#each customers}}
         {{#if HaveOrder}}
         <li class="burger-border">
-          Name: {{dataValues.customer_name}}<button class="delete-customer" data-id="{{dataValues.id}}">Cancel my
-            order!</button>
+          Name: {{dataValues.customer_name}}
+          <button class="delete-customer{{dataValues.id}}" data-id="{{dataValues.id}}">Cancel my order!</button>
+          <form class="add-form">
+            <div class="form-group">
+              <p id="add-error{{dataValues.id}}"></p>
+              <label id="burger-add-label" for="Burger-add-Name">Add a burger (Enter burger name)</label>
+              <input type="text" id="Burger-Add-Name{{dataValues.id}}" name="name">
+            </div>
+            <button class="add-to-order" data-id="{{dataValues.id}}">Add to my order!</button>
+          </form>
           <ul>
             {{#each Burgers}}
             {{#unless eaten}}
@@ -42,7 +50,8 @@
         {{#each customers}}
         {{#if HaveReorder}}
         <li class="burger-border">
-          Name: {{dataValues.customer_name}}<button class="delete-customer" data-id="{{dataValues.id}}">Leave the store!</button>
+          Name: {{dataValues.customer_name}}{{#unless HaveOrder}}<button class="delete-customer" data-id="{{dataValues.id}}">Leave the
+            store!</button>{{/unless}}
           <ul>
             {{#each Burgers}}
             {{#if eaten}}
