@@ -9,7 +9,8 @@ module.exports = (sequelize, DataTypes) => {
     Burger.belongsTo(models.Customer, {
       foreignKey: {
         allowNull: false
-      }
+      },
+      onDelete: "cascade"
     });
   };
   return Burger;

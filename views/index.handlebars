@@ -4,8 +4,11 @@
     <div class="col s12">
       <form class="create-form">
         <div class="form-group">
+          <p id="submit-error"></p>
           <label id="burger-name-label" for="Burger-Name">Order a burger (Enter burger name)</label>
           <input type="text" id="Burger-Name" name="name">
+          <label id="customer-name-label" for="Customer-Name">Place your name: (Required) </label>
+          <input type="text" id="Customer-Name" name="name">
         </div>
         <button type="submit">Add burger</button>
       </form>
@@ -15,21 +18,42 @@
     <div class="col s6">
       <h3>Pick up window:</h3>
       <ul>
-        {{#each burgers}}
-        {{#unless dataValues.eaten}}
-        {{> burgers/burger-block eat=true}}
-        {{/unless}}
+        {{#each customers}}
+        {{#if HaveOrder}}
+        <li class="burger-border">
+          Name: {{dataValues.customer_name}}<button class="delete-customer" data-id="{{dataValues.id}}">Cancel my
+            order!</button>
+          <ul>
+            {{#each Burgers}}
+            {{#unless eaten}}
+            {{> burgers/burger-block eat=true}}
+            {{/unless}}
+            {{/each}}
+          </ul>
+        </li>
+        {{/if}}
         {{/each}}
+
       </ul>
     </div>
     <div class="col s6">
       <h3>Reorder area:</h3>
       <ul>
-        {{#each burgers}}
-        {{#if dataValues.eaten}}
-        {{> burgers/burger-block eat=false}}
+        {{#each customers}}
+        {{#if HaveReorder}}
+        <li class="burger-border">
+          Name: {{dataValues.customer_name}}<button class="delete-customer" data-id="{{dataValues.id}}">Leave the store!</button>
+          <ul>
+            {{#each Burgers}}
+            {{#if eaten}}
+            {{> burgers/burger-block eat=false}}
+            {{/if}}
+            {{/each}}
+          </ul>
+        </li>
         {{/if}}
         {{/each}}
+
       </ul>
     </div>
   </div>

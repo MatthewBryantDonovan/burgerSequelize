@@ -10,11 +10,20 @@ body {
     padding: 5px;
 }
 
+#submit-error{
+    color: Black;
+    font-size: 1.75em;
+}
+
 span{
     font-size: 1.75em;
 }
 
 #burger-name-label{
+    color: white;
+    font-size: 1.75em;
+}
+#customer-name-label{
     color: white;
     font-size: 1.75em;
 }
